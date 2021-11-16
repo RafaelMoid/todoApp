@@ -17,6 +17,11 @@ const App = () => {
       id: '2',
       title: 'Jogar Botw',
       completed: false,
+    },
+    {
+      id: '3',
+      title: 'Amar amor',
+      completed: false,
     }
   ]);
 

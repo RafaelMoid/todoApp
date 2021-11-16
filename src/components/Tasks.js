@@ -1,4 +1,5 @@
 import React from 'react';
+import Task from "./Task"; //Sem isso nada será mapeado
 
 //Essa é a div filha (Será renderizada por APP, logo App é a div Pai)
 //Props passam dados entre divs pai e filha
@@ -6,7 +7,12 @@ import React from 'react';
 //Usei destructure para exibis as taks que estão nas props
 const Tasks = ({tasks}) => {
     //console.log(tasks) para printar todas as tasks
-    return <h1>Tasks</h1>
-}
+    return (
+    <>
+        {tasks.map((task) => (
+        <Task/>
+        ))}
+    </>
+    )}
 
 export default Tasks;
