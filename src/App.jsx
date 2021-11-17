@@ -26,11 +26,25 @@ const App = () => {
     }
   ]);
 
+  //Aqui vamos criar uma const para lidar com a adição de tarefas 
+  const handleTaskAddition = (taskTitle) => {
+      const newTasks = [... tasks, {
+        title: taskTitle,
+        id: Math.random(10),
+        completed: false,
+      },
+    ];
+  
+    setTasks ( newTasks );
+  };
+//Aqui termina o taskAddition
+
+
   //Quando usamos Chaves {} dentro do codigo HTML no JSX podemos usar JS no HTML, ai que tá a magica
   return (
   <div>
     <div className="container">
-      <AddTask />
+      <AddTask handleTaskAddition={handleTaskAddition}/>
       <Tasks tasks={tasks}/>
     </div>  
   </div>

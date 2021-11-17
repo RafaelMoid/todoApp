@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Button from "./Button";
 import "./AddTask.css";
 
-
-const AddTask = () => {
+//handleTaskAddition está vindo do App.jsx e é responsavel por trazer o valor do input
+const AddTask = ({handleTaskAddition}) => {
 
     //Criando state para salvar dados, Pode ser usado para as notas
     const [inputData, setInputData] = useState('');
@@ -11,8 +11,13 @@ const AddTask = () => {
     //Essa consta vai ser responsavel por setar o valor do inputData, usando o state e o onChange
     const handleInputChange = (e) => {
         setInputData(e.target.value);
-    }
+    };
 
+    //Essa const vai fazer o envio dos dados para o handleTaskAddition que por sua vez vai para o App.js
+    const handleAddTaskClick = () => {
+        handleTaskAddition(inputData)
+    };
+    
     //Na Div add-task-container podemos ver o uso do onChange
     return (
     <div className="add-task-container">
