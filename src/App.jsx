@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import {v4 as uuidv4} from 'uuid'; //Biblioteca para gerar ID
 import './App.css';
 
 const App = () => {
@@ -32,7 +33,7 @@ const App = () => {
         ... tasks, 
         {
           title: taskTitle,
-          id: Math.random(10),
+          id: uuidv4(), //Aqui está gerando id
           completed: false,
         },
       ];

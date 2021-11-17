@@ -30,7 +30,7 @@ const AddTask = ({handleTaskAddition}) => {
         />
         ;
         <div className="add-task-button-container">
-            <Button>Adicionar</Button>
+            <Button onClick={handleAddTaskClick}>Adicionar</Button>
         </div>
     </div>
         )
