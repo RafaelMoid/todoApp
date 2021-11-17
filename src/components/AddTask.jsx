@@ -15,7 +15,8 @@ const AddTask = ({handleTaskAddition}) => {
 
     //Essa const vai fazer o envio dos dados para o handleTaskAddition que por sua vez vai para o App.js
     const handleAddTaskClick = () => {
-        handleTaskAddition(inputData)
+        handleTaskAddition(inputData);
+        setInputData("");
     };
     
     //Na Div add-task-container podemos ver o uso do onChange

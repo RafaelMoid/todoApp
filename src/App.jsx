@@ -27,6 +27,17 @@ const App = () => {
     }
   ]);
 
+  //Função para alterar o estado de completo da Task
+  const handleTaskClick = (taskId) => {
+    const newTasks = tasks.map(task =>{
+      if (task.id === taskId) return {... task, completed: !task.completed};
+
+      return task;
+    });
+
+    setTasks(newTasks)
+  };
+
   //Aqui vamos criar uma const para lidar com a adição de tarefas 
   const handleTaskAddition = (taskTitle) => {
       const newTasks = [
@@ -48,7 +59,7 @@ const App = () => {
   <div>
     <div className="container">
       <AddTask handleTaskAddition={handleTaskAddition}/>
-      <Tasks tasks={tasks}/>
+      <Tasks tasks={tasks} handleTaskClick={handleTaskClick}/>
     </div>  
   </div>
   )
