@@ -5,12 +5,12 @@ import Task from "./Task"; //Sem isso nada será mapeado
 //Props passam dados entre divs pai e filha
 //O que está entre Parenteses () logo abaixo são as props
 //Usei destructure para exibis as taks que estão nas props
-const Tasks = ({tasks, handleTaskClick}) => {
+const Tasks = ({tasks, handleTaskClick, handleTaskDeletion}) => {
     //console.log(tasks) para printar todas as tasks
     return (
     <>
         {tasks.map((task) => (
-        <Task task={task} handleTaskClick={handleTaskClick}/>
+        <Task task={task} handleTaskClick={handleTaskClick} handleTaskDeletion={handleTaskDeletion}/>
         ))}
     </>
     )}

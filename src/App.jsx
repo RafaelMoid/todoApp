@@ -52,14 +52,25 @@ const App = () => {
     setTasks(newTasks);
   };
 //Aqui termina o taskAddition
+//Criando a função para deletar task que será chamada nos botões
+  const handleTaskDeletion = (taskId) => {
+    const newTasks = tasks.filter(task => task.id != taskId)
 
+    setTasks(newTasks)
+  }
 
   //Quando usamos Chaves {} dentro do codigo HTML no JSX podemos usar JS no HTML, ai que tá a magica
+  //Observe que varias funções estão sendo passadas como props em tasks, dessa forma podemos mandar
+  //uma função JS para os filhos desse arquivo
   return (
   <div>
     <div className="container">
       <AddTask handleTaskAddition={handleTaskAddition}/>
-      <Tasks tasks={tasks} handleTaskClick={handleTaskClick}/>
+      <Tasks 
+          tasks={tasks} 
+          handleTaskClick={handleTaskClick}
+          handleTaskDeletion={handleTaskDeletion}
+          />
     </div>  
   </div>
   )

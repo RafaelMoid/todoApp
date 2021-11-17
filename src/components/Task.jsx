@@ -1,9 +1,10 @@
 import React from 'react';
 import './Task.css'; // Estilização dos componentes que resão mapeados
+import {CgClose} from "react-icons/cg";
 
 //Usando função javascript no codigo html .map para trazer todos os dados do props
 //Usando javascript podemos selecionar o campo que desejamos recolher a informação como na task do H!
-const Task = ({ task, handleTaskClick }) => {
+const Task = ({ task, handleTaskClick,handleTaskDeletion }) => {
    return (
        <div 
        className="task-container" 
@@ -14,7 +15,12 @@ const Task = ({ task, handleTaskClick }) => {
             </div>
 
             <div className="buttons-container">
-                <button className="remove-task-button">X</button>
+                <button 
+                    className="remove-task-button" 
+                    onClick={()=> handleTaskDeletion(task.id)}
+                    >
+                        <CgClose/>
+                </button>
             </div>
        </div>
    );
