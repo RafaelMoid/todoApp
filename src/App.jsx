@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
+import Header from "./components/Header";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+
+
 import {v4 as uuidv4} from 'uuid'; //Biblioteca para gerar ID
 import './App.css';
 
@@ -63,16 +67,25 @@ const App = () => {
   //Observe que varias funções estão sendo passadas como props em tasks, dessa forma podemos mandar
   //uma função JS para os filhos desse arquivo
   return (
-  <div>
+  <Router>
     <div className="container">
-      <AddTask handleTaskAddition={handleTaskAddition}/>
-      <Tasks 
-          tasks={tasks} 
-          handleTaskClick={handleTaskClick}
-          handleTaskDeletion={handleTaskDeletion}
-          />
+      <Header/>
+      <Route 
+        path="/" 
+        exact 
+        render={() => (
+          <>
+            <AddTask handleTaskAddition={handleTaskAddition}/>
+            <Tasks 
+              tasks={tasks} 
+              handleTaskClick={handleTaskClick}
+              handleTaskDeletion={handleTaskDeletion}
+            />
+          </>
+          )}
+        />
     </div>  
-  </div>
-  )
+  </Router>
+  );
 } ;
 export default App;
